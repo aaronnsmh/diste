@@ -1,16 +1,18 @@
 exports.run = async (Discord, client, message, args) => {
 let complaint = args.slice(0).join(" ");
+if(!complaint.length < 1) return message.reply("you need to specify your complaint!");
+if(!complaint.length < 3) return message.reply("please increase the size of your complaint.");
 const author = message.author;
 let staffc = message.guild.channels.find("name", "complaints-review")
 const embed = new Discord.RichEmbed()
             .setColor("#4286f4")
             .setTimestamp()
             .setTitle("New Complaint")
-            .setAuthor(message.author.tag, message.author.avatarURL)
+            .setAuthor(message.author, message.author.avatarURL)
             .setFooter("Complaint made at ", client.avatarURL)
             .setURL("https://ibot.space")
             .setThumbnail(client.avatarURL)
-            .setDescription("Description: \n" + complaint);
+            .setDescription(complaint);
 
             const embed2 = new Discord.RichEmbed()
                         .setColor("#4286f4")
