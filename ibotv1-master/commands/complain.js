@@ -1,6 +1,7 @@
 exports.run = async (Discord, client, message, args) => {
 let complaint = args.slice(0).join(" ");
-if(!complaint) return message.reply("please increase the size of your complaint.");
+if(!complaint.length < 1) return message.reply("you need to specify your complaint!");
+if(!complaint.length < 3) return message.reply("please increase the size of your complaint.");
 const author = message.author;
 let staffc = message.guild.channels.find("name", "complaints-review")
 const embed = new Discord.RichEmbed()
@@ -19,6 +20,6 @@ const embed = new Discord.RichEmbed()
                         .setAuthor(message.author, message.author.avatarURL)
                         .setURL("https://ibot.space")
                         .setDescription("**:white_check_mark: Complaint Sent!** You will be comtacted shortly.");
-            message.channel.send({embed2});
         await staffc.send({embed});
+        message.channel.send({embed2});
 }
