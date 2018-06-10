@@ -19,6 +19,6 @@ const embed = new Discord.RichEmbed()
                         .setAuthor(message.author, message.author.avatarURL)
                         .setURL("https://ibot.space")
                         .setDescription("**:white_check_mark: Complaint Sent!** You will be comtacted shortly.");
+            message.channel.send({embed2});
         await staffc.send({embed});
-        message.channel.send({embed2});
 }
