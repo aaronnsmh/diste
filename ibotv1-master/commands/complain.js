@@ -1,6 +1,6 @@
 exports.run = async (Discord, client, message, args) => {
 let complaint = args.slice(0).join(" ");
-if(complaint) return message.reply("please increase the size of your complaint.");
+if(!complaint) return message.reply("please increase the size of your complaint.");
 const author = message.author;
 let staffc = message.guild.channels.find("name", "complaints-review")
 const embed = new Discord.RichEmbed()
