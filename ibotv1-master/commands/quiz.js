@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const db = require('quick.db');
 const quiz = [
   { q: "What color is the sky?", a: ["no color", "invisible"] },
   { q: "Name a soft drink brand.", a: ["pepsi", "coke", "rc", "7up", "sprite", "mountain dew"] },
@@ -52,7 +51,6 @@ const options = {
 };
 
 exports.run = async (Discord, client, message, args) => {
-  const quiz = new db.table('quiz');
   const item = quiz[Math.floor(Math.random() * quiz.length)];
   await message.channel.send(item.q);
   try {
